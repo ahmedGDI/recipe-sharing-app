@@ -4,18 +4,18 @@ module.exports = {
     
     getAllUsers: async function(req, res) {
         try{
-            const result = await users.getAll()
-                res.status(200).send(result[0])
+            const response = await users.getAll()
+                res.status(200).send(response[0])
         }
         catch(err){
-                res.status(500).send(err)
+                res.status(500).send(response)
         }
     },
     addUser: async function(req, res) {
         const {name,password} = req.body
-        const result = await users.add(name,password)
+        const response = await users.add(name,password)
         try{
-            res.status(200).send(result)
+            res.status(200).send(response)
         }catch(err){
             res.status(500).send(err)
         }

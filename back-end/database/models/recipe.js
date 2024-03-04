@@ -10,8 +10,8 @@ module.exports = {
       },
       add:  (body)=> {
         const sql = 'insert into recipe (name,description,users_id) values (?)'
-        const {name,description,user_id} = body
-        return conn.query(sql,[[name,description,user_id]])
+        const {name,description,users_id} = body
+        return conn.query(sql,[[name,description,users_id]])
       },
       del :(id)=>{
             const sql = 'delete from recipe where users_id = ? '
@@ -19,7 +19,7 @@ module.exports = {
       },
       update : (id,body)=>{
         const {name,description}=body
-const sql = `UPDATE items SET name = '${name}',description = '${description}'  WHERE users_id = ?;`
-return conn.query(sql,[id]) 
+const sql = 'UPDATE recipe SET name = ?, description = ? WHERE users_id = ?'
+return conn.query(sql,[name,description,id])
       }
     }

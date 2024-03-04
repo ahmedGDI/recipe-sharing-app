@@ -5,16 +5,16 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema recipe
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
 -- Schema recipe
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `recipe` DEFAULT CHARACTER SET utf8 ;
--- -----------------------------------------------------
--- Schema recipe
--- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `recipe` DEFAULT CHARACTER SET utf8mb3 ;
 USE `recipe` ;
 
 -- -----------------------------------------------------
@@ -26,14 +26,15 @@ CREATE TABLE IF NOT EXISTS `recipe`.`users` (
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
 -- Table `recipe`.`recipe`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `recipe`.`recipe` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
   `users_id` INT NOT NULL,
@@ -44,7 +45,8 @@ CREATE TABLE IF NOT EXISTS `recipe`.`recipe` (
     REFERENCES `recipe`.`users` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
@@ -68,7 +70,8 @@ CREATE TABLE IF NOT EXISTS `recipe`.`ingredient` (
     REFERENCES `recipe`.`users` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

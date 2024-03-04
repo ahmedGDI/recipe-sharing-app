@@ -10,8 +10,8 @@ module.exports = {
         return conn.query(sql)
   },
   add: (body)=> {
-    const {comment,users_id,recipe_id} = body
-    const sql = `insert into ingredient (content,recipe_id,users_id) values (?)`
-    conn.query(sql,[[comment,users_id,recipe_id]])
+    const {content,users_id,recipe_id} = body
+    const sql = 'insert into ingredient (content,recipe_id,users_id) values (?)'
+    conn.query(sql,[[content,users_id,recipe_id]])
   }
 };

@@ -11,7 +11,7 @@ module.exports = {
   },
   add: (body)=> {
     const {content,users_id,recipe_id} = body
-    const sql = 'insert into ingredient (content,recipe_id,users_id) values (?)'
+    const sql = 'insert into ingredient (content,users_id,recipe_id) values (?)'
     conn.query(sql,[[content,users_id,recipe_id]])
   }
 };

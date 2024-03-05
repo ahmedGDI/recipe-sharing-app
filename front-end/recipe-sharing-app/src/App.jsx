@@ -1,27 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.js
+import React, { useState } from "react";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [isSignIn, setIsSignIn] = useState(true);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-         
-        </a>
-        
-      </div>
-      <h1>reciep sharing app</h1>
-      <div className="card">
-        
-        
-      </div>
-     
-    </>
-  )
+    const toggleView = () => {
+        setIsSignIn(!isSignIn);
+    };
+
+    return (
+        <div>
+    {isSignIn ? <SignIn toggleView={toggleView} /> : <SignUp toggleView={toggleView} />}
+        </div>
+    );
 }
 
-export default App
+export default App;

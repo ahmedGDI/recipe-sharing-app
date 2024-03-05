@@ -8,9 +8,9 @@ module.exports = {
         const sql = 'select * from recipe where users_id = ?'
         return conn.query(sql,[id])
       },
-      add:  (body)=> {
+      add:  (data)=> {
         const sql = 'insert into recipe (name,description,img,users_id) values (?)'
-        const {name,description,img,users_id} = body
+        const {name,description,img,users_id} = data
         return conn.query(sql,[[name,description,img,users_id]])
       },
       del :(id)=>{

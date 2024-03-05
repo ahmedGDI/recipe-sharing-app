@@ -13,9 +13,11 @@ function SignIn({ toggleView }) {
                 name: name,
                 password: password
             });
-            console.log(response.data);
+            console.log(response.data[0].insertId);
+            localStorage.setItem("users_id", response.data[0].insertId)
+            
             if (response.data && response.data.message === 'Login successful') {
-                
+                console.log(response[0].insertId) 
                 console.log("Sign-in successful!");
     
                 

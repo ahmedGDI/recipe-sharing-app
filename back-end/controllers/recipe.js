@@ -24,8 +24,9 @@ module.exports = {
     },
             addRecipe: async (req,res)=>{
                 try{
-                const {body} = req
-                    const response = await add(body)
+                const {data} = req.body
+                console.log(data)
+                    const response = await add(data)
                     res.status(201).send(response)
 
             }catch(err){

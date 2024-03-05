@@ -34,7 +34,6 @@ function SignUp({ toggleView }) {
             <h2>Sign Up</h2>
             <input type="text" placeholder="Username" value={name} onChange={(e) => setName(e.target.value)} />
             <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            
             <button onClick={handleSignUp}>Sign Up</button>
             <p>Already have an account? <span onClick={toggleView}>Sign In</span></p>
         </div>

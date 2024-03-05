@@ -1,19 +1,31 @@
 import React, { useState } from "react";
+import axios from "axios"
 
-const CreateRe = ({ create, func2 }) => {
+const CreateRe = ({  func2,fet }) => {
   const [recipeName, setRecipeName] = useState("");
   const [ImgeName, setRecipeImg] = useState("");
   const [recipeDescription, setRecipeDescription] = useState("");
-
-  const handleCreate = () => {
+  
+  const handleCreate = async () => {
+    const id = localStorage.getItem("users_id")
     if (recipeName.length !== 0) {
-      create({ name: recipeName,  img :ImgeName, description: recipeDescription });
-      setRecipeName("");
-      setRecipeImg(" ")
-      setRecipeDescription("");
-      func2("allRecipe");
+      const data = {
+        name: recipeName,  img :'zaed', description: recipeDescription ,users_id:id
+      }
+      console.log(data)
+      try {
+        await axios.post("http://localhost:3000/api/recipe/add",{data})
+    
+        setRecipeName("")
+        setRecipeImg(" ")
+        setRecipeDescription("")
+        func2("allRecipe")
+        fet()
+        } catch (error) {
+            console.log(error);
+        }
     }
-  };
+  }
 
   return (
     <div>

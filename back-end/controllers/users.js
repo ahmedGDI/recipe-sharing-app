@@ -9,7 +9,7 @@ module.exports = {
             console.log(result,"testing ...");
             var x = result[0][0]
             if (x.password === password) {
-console.log(x)
+                    console.log(x)
                 res.status(200).send({ message: 'Login successful' });
             }
 

@@ -30,16 +30,8 @@ function App() {
 
     const changeView = (view) => {
         setView(view);
-    };
-
-    const createRecipe = async (recipe) => {
-        try {
-            await axios.post("http://localhost:3000/api/recipe/add", recipe);
-            fetchRecipes();
-        } catch (error) {
-            setError(error.message);
-        }
-    };
+    }
+  
 
     const deleteRecipe = async (id) => {
         try {
@@ -56,7 +48,8 @@ function App() {
         } else if (view === "allRecipe") {
             return <AllRecipe items={data} onDelete={deleteRecipe} />;
         } else if (view === "createRe") {
-            return <CreateRe create={createRecipe} func2={changeView} />;
+            
+            return <CreateRe  fet = {fetchRecipes} func2={changeView} />;
         }
     };
 
